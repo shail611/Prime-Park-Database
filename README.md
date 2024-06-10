@@ -24,6 +24,22 @@ category, fee, payment status.
 - Permit Information: permit ID, lot, zone ID, space number, start date, expiration date,
 expiration time, driverId, and permit type, carLicenseNumber
 
+# Design Decisions
+The system has a main menu that gives users the following options: “Information Processing”,
+“Maintaining permits and vehicle information for each driver”, “Generating and maintaining
+citations”, “Reports”, “Exit”. When prompted, the user enters a number 0-5 corresponding with
+what kind of action they would like to take. For each menu option there is a submenu displayed
+that has specific operations listed. The system has a main class (Main.java) that facilitates
+switching between the main menu options and separate classes for each related group of
+operations. This was done to break the application into more manageable and maintainable
+pieces of code.
+
+The program also contains two helper classes. One helper class is DBManager, which, through
+the use of a shared database connection, provides the ability to execute SQL queries and perform
+transactions through various utility methods. The other class is Input, which is a class that
+attempts to abstract the details of getting different types of input from the user, and includes a
+method for printing a ResultSet object.
+
 # Assumptions
 
 ● Parking lots consist of Zones. Zone Id is unique within a parking lot. Zones consist
