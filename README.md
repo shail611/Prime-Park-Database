@@ -64,3 +64,29 @@ operations level.
 
 ● Restrictions on number of permits and number of vehicles on each permit based
 on the status of the driver will be handled at operations level
+
+● One driver can make only one appeal per citation.
+
+● A Vehicle cannot have multiple permits at a time.
+
+● In the case of ‘No permit’, the security guard will manually check whether the vehicle
+has permit or not, if not, then the security guard will first request the administrator to add
+vehicle and driver details into the system and then security will manually add a citation
+for that particular vehicle by asking for all the information regarding vehicle and driver
+on the spot. (We are doing this because it might happen that in the case of no permit the
+drivers and vehicle’s details might not be there into the system and the citation table is
+linked with the vehicle's table so the foreign key constraint should be satisfied).
+
+● When user raises a request for permit, we will check all the constraints based on user
+status and then if everything is ok then we will give parking permission to the user at
+particular location(parking lot, zone and space type), at this time hence manually
+checking every available space in the parking lot is not possible, we will randomly select
+any of the empty parking spaces and change its status to ‘NO’ instead of ‘YES’, which
+will help us to keep track of currently available parking spaces.
+
+● A space is randomly selected and availability status is updated to NO in order to handle
+the permit overflow case in a space type in a particular zone and parking lot.
+
+● Admin updates the Availability status of the space back to YES once that permit expires.
+
+● The permit’s start date should only be the date on which the permit is being requested.
